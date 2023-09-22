@@ -1,0 +1,34 @@
+<%- include("partials/header.ejs") %>
+
+    <article>
+      <section class="formSection">
+        <h1>QR Code Generator</h1>
+        <form action="/generate" method="post">
+          <label for="URL">URL:</label>
+          <input type="text" name="url" id="url" required placeholder="URL" />
+          <input class="button" type="submit" value="Generate QR Code" />
+        </form>
+      </section>
+      <section class="imageSection">
+        <% if(!locals.codePNG){ %>
+        <img
+          src="images/qr-code.png"
+          alt="QR code"
+          width="200px"
+          height="200px"
+        />
+
+        <% } else{ %> 
+          <% if (locals.errorMessage) { %>
+            <p><%= errorMessage %></p>
+        <% } %>
+        <img src="<%= codePNG %>" alt="QR code" width="200px" height="200px" />
+        <p><%= message %></p>
+        <p>QR code is generated successfully</p>
+        <a href=<%= codePNG %> download="<%= message %>.png" target="_blank"><button>Download as PNG</button></a>
+
+        <% } %>
+      </section>
+    </article>
+  
+<%- include("partials/footer.ejs") %>
