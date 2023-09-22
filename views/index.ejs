@@ -14,15 +14,14 @@
         <img
           src="images/qr-code.png"
           alt="QR code"
-          width="200px"
-          height="200px"
+         
         />
 
         <% } else{ %> 
           <% if (locals.errorMessage) { %>
             <p><%= errorMessage %></p>
         <% } %>
-        <img src="<%= codePNG %>" alt="QR code" width="200px" height="200px" />
+        <img src="<%= codePNG %>" alt="QR code" />
         <p><%= message %></p>
         <p>QR code is generated successfully</p>
         <a href=<%= codePNG %> download="<%= message %>.png" target="_blank"><button>Download as PNG</button></a>
